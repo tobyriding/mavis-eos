@@ -8,28 +8,23 @@ This project was created to assist ETC Eos programmers with learning the positio
 ### Features
 The software generates random Eos syntax, and displays them on a local webpage for the user to view and type into the Eos desk. When used with the included showfile, the syntax is sent back to the software to check your response, and if it is correct one point is added to the score. Five points are removed for any incorrect response.
 
-## Installation
+### Compatiblity
+This project does not require any ETC hardware, or any licenses. This means that you can practice using any ETC desk that can run the (non-legacy) .esf2 showfile, or just use the Windows/Mac EOS software on the same PC as the project, allowing you to practice with hotkeys or LXkeys type hardware.
 
-### Install Node Red
+
+
+## Installation
  1. Follow [this guide](https://nodered.org/docs/getting-started/local) on how to install Node Red for your system.
- 2. Use the command `node-red` to start Node-Red.
- 3. In the it will list the location on your computer of the settings file, `settings.js`. Find this file and open it in a text editor (like notepad).
- 4. About 3/4 of the way down the document under Editor Settings, there should be a block that looks like this:
-    ```        projects: {
-            /** To enable the Projects feature, set this value to true */
-            enabled: false,
-            workflow: {
-                /** Set the default projects workflow mode.
-                 *  - manual - you must manually commit changes
-                 *  - auto - changes are automatically committed
-                 * This can be overridden per-user from the 'Git config'
-                 * section of 'User Settings' within the editor
-                 */
-                mode: "manual"
-            }
-        },
-    ```
-    Change `enabled:false` to `enabled:true`, save and close the file.
-5. Close the terminal running Node-Red, open a new terminal and run the `node-red` command again.
-6. Navigate to http://localhost:1880
-7. 
+ 2. Once installed, use the command `node-red` in a terminal or command line window to start Node-Red.
+ 3. Navigate to http://127.0.0.1:1880
+ 4. Close (or follow) the tour, and then click clone repository. Change your name and email if you'd like, however these are only used if you want to contribute to the project and upload changes.
+ 5. Type `mavis-eos` into the project name window, and input this link: https://github.com/tobyriding/mavis-eos as the git repository URL. Ignore all the other options and click Clone Repository at the bottom. 
+ 6. At this point the project files will be copied to your computer, but you will still be missing dependencies. Click the Managed Dependencies button and click all the small install buttons. Wait for them all to show as installed.
+ 7. Navigate to http://127.0.0.1:1880/maviseos and follow the instructions to link your Eos to the software!
+
+## A Note
+Please don't use this on any live, large, or show networks. No damage should be caused if you do so but this a personal project, I don't know any cybersecurity best practices, and so therefore this software is not designed to be secure or particularly stable.
+This software probably doesn't work perfectly, and could be more complex, but I've decided to get a simple version published in case I lose interest/become too busy to continue working on it.
+
+### Known Issues
+ - The software doesn't keep track of the actual status of the desk at the moment (just the command line) and is entirely random and so it will occaisonally ask you to select active just after you set all channels to 0 meaning there are no fixtures selected. Fix: Type any random command in to fail the prompt and continue.
