@@ -20,7 +20,7 @@ This project does not require any ETC hardware, or any licenses. This means that
  3. Navigate to http://127.0.0.1:1880
  4. Close (or follow) the tour, and then click clone repository. Change your name and email if you'd like, however these are only used if you want to contribute to the project and upload changes.
  5. Type `mavis-eos` into the project name window, and input this link: https://github.com/tobyriding/mavis-eos as the git repository URL. Ignore all the other options and click Clone Repository at the bottom. 
- 6. At this point the project files will be copied to your computer, but you will still be missing dependencies. Click the Managed Dependencies button and click all the small install buttons. Wait for them all to show as installed.
+ 6. At this point the project files will be copied to your computer, but you will still be missing dependencies. Click the Manage Dependencies button and click all the small install buttons. Wait for them all to show as installed.
  7. Navigate to http://127.0.0.1:1880/maviseos and follow the instructions to link your Eos to the software!
 
 ## A Note
