@@ -9,7 +9,7 @@ This project was created to assist ETC Eos programmers with learning the positio
 The software generates random Eos syntax, and displays them on a local webpage for the user to view and type into the Eos desk. When used with the included showfile, the syntax is sent back to the software to check your response, and if it is correct one point is added to the score. Five points are removed for any incorrect response.
 
 ### Compatiblity
-This project does not require any ETC hardware, or any licenses. This means that you can practice using any ETC desk that can run the (non-legacy) .esf2 showfile, or just use the Windows/Mac EOS software on the same PC as the project, allowing you to practice with hotkeys or LXkeys type hardware.
+This project does not require any ETC hardware, or any licenses. This means that you can practice using any ETC desk that can run the (non-legacy) .esf2 showfile, or just use the Windows/Mac EOS software on the same PC as the project, allowing you to practice with hotkeys or LXkeys type hardware. The only limiting factor may be that the showfile is quite large for Eos (10mb), so can take a while to load.
 
 
 
