@@ -1,1 +1,3026 @@
-[]
+[
+    {
+        "id": "ab66e8caf828f07c",
+        "type": "tab",
+        "label": "UI Builder",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "78aa24a78d24f636",
+        "type": "tab",
+        "label": "OSC Input",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "335292891edc720c",
+        "type": "tab",
+        "label": "Prompt Generator",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e2d4a43ff9f2c0b7",
+        "type": "tab",
+        "label": "Experiments/Macros",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7a3645b5a30f194b",
+        "type": "subflow",
+        "name": "PyGpioOut",
+        "info": "",
+        "category": "Raspberry Pi",
+        "in": [
+            {
+                "x": 160,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "0392c5d96995fb8b"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "pin",
+                "type": "num",
+                "value": "0"
+            }
+        ],
+        "meta": {},
+        "color": "#3FADB5",
+        "icon": "node-red/rpi.svg"
+    },
+    {
+        "id": "a1cce4e3cc0d81c7",
+        "type": "subflow",
+        "name": "Selection Generator",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "8a8f94897eaf869c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1200,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "0c0c502f28f40131",
+                        "port": 0
+                    },
+                    {
+                        "id": "376eecc8fd77e5fe",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "c612329265fa9d3e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#4abdfb",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "0392c5d96995fb8b",
+        "type": "function",
+        "z": "7a3645b5a30f194b",
+        "name": "",
+        "func": "msg.gpioPin = env.get(\"pin\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a8f94897eaf869c",
+        "type": "random-output",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "",
+        "outputs": 2,
+        "useWeights": true,
+        "weights": [
+            "5",
+            "5"
+        ],
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "f5479a0d1e736d27"
+            ],
+            [
+                "55a4873f052abd15"
+            ]
+        ]
+    },
+    {
+        "id": "f5479a0d1e736d27",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Chan Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Chan \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "0c0c502f28f40131"
+            ]
+        ]
+    },
+    {
+        "id": "55a4873f052abd15",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Group Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Group \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "2e0af73d9ada96af"
+            ]
+        ]
+    },
+    {
+        "id": "0c0c502f28f40131",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "R1000 append",
+        "func": "function getRandomInt(max) {\n  return (Math.floor((Math.random() * max - 1))+1);\n}\n\nvar rndm = {}\n\nrndm = String(getRandomInt(1000))\n\ncmdline = msg.payload\n\ncmdline = cmdline + rndm\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e0af73d9ada96af",
+        "type": "random-output",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "",
+        "outputs": 7,
+        "useWeights": true,
+        "weights": [
+            "4",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "5"
+        ],
+        "x": 580,
+        "y": 160,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ],
+            [
+                "dbb6a6c6fea69f93"
+            ],
+            [
+                "fc632732b52a80cd"
+            ],
+            [
+                "dd27985fa7bfad48"
+            ],
+            [
+                "7ca1110d4d9e2acb"
+            ],
+            [
+                "9446040e87647937"
+            ],
+            [
+                "c3256f22c4ec6b50"
+            ]
+        ]
+    },
+    {
+        "id": "dbb6a6c6fea69f93",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Sub Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Sub \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 140,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ]
+        ]
+    },
+    {
+        "id": "fc632732b52a80cd",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Preset Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Preset \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 180,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ]
+        ]
+    },
+    {
+        "id": "dd27985fa7bfad48",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Beam Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Beam Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 220,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ]
+        ]
+    },
+    {
+        "id": "7ca1110d4d9e2acb",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Color Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Color Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 260,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ]
+        ]
+    },
+    {
+        "id": "9446040e87647937",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Focus Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Focus Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ]
+        ]
+    },
+    {
+        "id": "c3256f22c4ec6b50",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "Int Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Intensity Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 340,
+        "wires": [
+            [
+                "376eecc8fd77e5fe"
+            ]
+        ]
+    },
+    {
+        "id": "376eecc8fd77e5fe",
+        "type": "function",
+        "z": "a1cce4e3cc0d81c7",
+        "name": "R100 append",
+        "func": "function getRandomInt(max) {\n  return (Math.floor((Math.random() * max - 1))+1);\n}\n\nvar rndm = {}\n\nrndm = String(getRandomInt(100))\n\ncmdline = msg.payload\n\ncmdline = cmdline + rndm\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad86a9581d924311",
+        "type": "uibuilder",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "",
+        "url": "maviseos",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "iife-blank-client",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": true,
+        "sourceFolder": "src",
+        "deployedVersion": "6.8.2",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "x": 1330,
+        "y": 540,
+        "wires": [
+            [
+                "83881d1aefeeb5d3",
+                "e3087c61a48d9628"
+            ],
+            [
+                "1d1e374f760b4537",
+                "28149b576b3f8467"
+            ]
+        ]
+    },
+    {
+        "id": "e2ba5b0c921d453d",
+        "type": "watch",
+        "z": "ab66e8caf828f07c",
+        "name": "html file",
+        "files": "C:\\\\Users\\\\fluor\\\\.node-red\\\\projects\\\\Mavis_Eos\\\\uibuilder\\\\maviseos\\\\src\\\\index.html",
+        "recursive": "",
+        "x": 610,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8c41b37dfb4f3e6",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_uib.reload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 500,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "ef0d6150f830c285",
+        "type": "uib-element",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "prompt",
+        "elementtype": "article",
+        "parent": "#dynamic",
+        "parentSource": "",
+        "parentSourceType": "str",
+        "elementid": "prompt",
+        "elementId": "",
+        "elementIdSourceType": "str",
+        "heading": "Prompt",
+        "headingSourceType": "str",
+        "headingLevel": "h3",
+        "data": "payload",
+        "dataSourceType": "msg",
+        "position": "20",
+        "positionSourceType": "str",
+        "passthrough": false,
+        "confData": {},
+        "x": 790,
+        "y": 800,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "591a9402571af466",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "link in 1",
+        "links": [
+            "9ab3f968bb8c0bf9",
+            "e161c2d30d487792"
+        ],
+        "x": 275,
+        "y": 800,
+        "wires": [
+            [
+                "09bcd8f9b701d23e"
+            ]
+        ]
+    },
+    {
+        "id": "83881d1aefeeb5d3",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "start stop",
+        "property": "_ui.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "start",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "stop",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1080,
+        "y": 500,
+        "wires": [
+            [
+                "d011853a525a0913"
+            ],
+            [
+                "32d865e6990e29cf"
+            ]
+        ]
+    },
+    {
+        "id": "d011853a525a0913",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "start",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "_ui",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "running",
+                "pt": "global",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 440,
+        "wires": [
+            [
+                "c87a2e66bca3d9d3"
+            ]
+        ]
+    },
+    {
+        "id": "c87a2e66bca3d9d3",
+        "type": "link out",
+        "z": "ab66e8caf828f07c",
+        "name": "Start",
+        "mode": "link",
+        "links": [
+            "46a94d97412ea755",
+            "5660d3de8175e18f",
+            "c898af602dd9e28e"
+        ],
+        "x": 1515,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5b7a1e606e7c6c88",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "running check",
+        "property": "running",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "b67cb04d6831d184"
+            ],
+            [
+                "237dcf0633069864"
+            ]
+        ]
+    },
+    {
+        "id": "46a94d97412ea755",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "Go Button",
+        "links": [
+            "1d1e374f760b4537",
+            "9ab3f968bb8c0bf9",
+            "c87a2e66bca3d9d3"
+        ],
+        "x": 255,
+        "y": 540,
+        "wires": [
+            [
+                "5b7a1e606e7c6c88"
+            ]
+        ]
+    },
+    {
+        "id": "1d1e374f760b4537",
+        "type": "link out",
+        "z": "ab66e8caf828f07c",
+        "name": "Device Connected",
+        "mode": "link",
+        "links": [
+            "46a94d97412ea755",
+            "cbbd874c204eef4c",
+            "5660d3de8175e18f"
+        ],
+        "x": 1495,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "3653509e8df14db5",
+        "type": "inject",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "3de183746bc4fa34"
+            ]
+        ]
+    },
+    {
+        "id": "3de183746bc4fa34",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "running",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "counter",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "delete",
+                "p": "currentprompt",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ce7fe6260a79a04",
+        "type": "uib-element",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "lastscore",
+        "elementtype": "html",
+        "parent": "#dynamic",
+        "parentSource": "",
+        "parentSourceType": "str",
+        "elementid": "lastscore",
+        "elementId": "",
+        "elementIdSourceType": "str",
+        "heading": "Score",
+        "headingSourceType": "str",
+        "headingLevel": "h4",
+        "data": "payload",
+        "dataSourceType": "msg",
+        "position": "first",
+        "positionSourceType": "str",
+        "passthrough": false,
+        "confData": {},
+        "x": 770,
+        "y": 920,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "237dcf0633069864",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "running",
+        "func": "var msg1 = {}\nmsg1.mode = \"remove\"\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 580,
+        "wires": [
+            [
+                "c141b2256e47d985"
+            ]
+        ]
+    },
+    {
+        "id": "525dfabbcd63e259",
+        "type": "uib-cache",
+        "z": "ab66e8caf828f07c",
+        "cacheall": false,
+        "cacheKey": "topic",
+        "newcache": false,
+        "num": 1,
+        "storeName": "memory",
+        "name": "",
+        "storeContext": "context",
+        "varName": "uib_cache",
+        "x": 1130,
+        "y": 540,
+        "wires": [
+            [
+                "ad86a9581d924311"
+            ]
+        ]
+    },
+    {
+        "id": "87cc9a4d8bb97101",
+        "type": "uib-element",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "cmdline",
+        "elementtype": "article",
+        "parent": "#dynamic",
+        "parentSource": "",
+        "parentSourceType": "str",
+        "elementid": "CmdLine",
+        "elementId": "",
+        "elementIdSourceType": "str",
+        "heading": "",
+        "headingSourceType": "str",
+        "headingLevel": "h4",
+        "data": "payload",
+        "dataSourceType": "msg",
+        "position": "30",
+        "positionSourceType": "str",
+        "passthrough": false,
+        "confData": {},
+        "x": 800,
+        "y": 700,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "4c74bfe7aa56b422",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "link in 3",
+        "links": [
+            "9ab3f968bb8c0bf9",
+            "c210308d6dffb9dc"
+        ],
+        "x": 275,
+        "y": 700,
+        "wires": [
+            [
+                "4b8238ab13a798c7"
+            ]
+        ]
+    },
+    {
+        "id": "28149b576b3f8467",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "property": "running",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1090,
+        "y": 620,
+        "wires": [
+            [
+                "aa9eeaf0a47daec2"
+            ],
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "aa9eeaf0a47daec2",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cacheControl",
+                "pt": "msg",
+                "to": "clear",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 620,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "1f1747c16763fcbd",
+        "type": "uib-element",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "gobutton",
+        "elementtype": "sform",
+        "parent": "#dynamic",
+        "parentSource": "",
+        "parentSourceType": "str",
+        "elementid": "stopbutton",
+        "elementId": "",
+        "elementIdSourceType": "str",
+        "heading": "",
+        "headingSourceType": "str",
+        "headingLevel": "h2",
+        "data": "payload",
+        "dataSourceType": "msg",
+        "position": "10",
+        "positionSourceType": "str",
+        "passthrough": false,
+        "confData": {},
+        "x": 820,
+        "y": 620,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "45d39cd4263e57b1",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "running check",
+        "property": "running",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 400,
+        "y": 620,
+        "wires": [
+            [
+                "0e3136fbbb7c7cd1"
+            ],
+            [
+                "92a311d739661053"
+            ]
+        ]
+    },
+    {
+        "id": "5660d3de8175e18f",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "Stop Button",
+        "links": [
+            "1d1e374f760b4537",
+            "9ab3f968bb8c0bf9",
+            "c87a2e66bca3d9d3"
+        ],
+        "x": 255,
+        "y": 620,
+        "wires": [
+            [
+                "45d39cd4263e57b1"
+            ]
+        ]
+    },
+    {
+        "id": "0e3136fbbb7c7cd1",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "running",
+        "func": "var msg1 = {}\nmsg1.payload = [\n    {\n        \"id\": \"stop\",\n        \"type\": \"button\",\n        \"label\": \"Stop\",\n        \"value\": \"stop\"\n    }\n]\n\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 620,
+        "wires": [
+            [
+                "1f1747c16763fcbd"
+            ]
+        ]
+    },
+    {
+        "id": "92a311d739661053",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "not running",
+        "func": "var msg1 = {}\nmsg1.mode = \"remove\"\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 660,
+        "wires": [
+            [
+                "1f1747c16763fcbd"
+            ]
+        ]
+    },
+    {
+        "id": "32d865e6990e29cf",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "stop",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "_ui",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "running",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "lastscore",
+                "pt": "global",
+                "to": "counter",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "counter",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 480,
+        "wires": [
+            [
+                "9ab3f968bb8c0bf9"
+            ]
+        ]
+    },
+    {
+        "id": "9ab3f968bb8c0bf9",
+        "type": "link out",
+        "z": "ab66e8caf828f07c",
+        "name": "Stop",
+        "mode": "link",
+        "links": [
+            "46a94d97412ea755",
+            "4c74bfe7aa56b422",
+            "5660d3de8175e18f",
+            "591a9402571af466",
+            "811d9e7887a38545",
+            "97b4271bda794ccc",
+            "d0908a5c181832bd"
+        ],
+        "x": 1515,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "89ad49fb6e74c3b2",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "Reload",
+        "links": [],
+        "x": 645,
+        "y": 460,
+        "wires": [
+            [
+                "e8c41b37dfb4f3e6"
+            ]
+        ]
+    },
+    {
+        "id": "a8ee44a623e3f103",
+        "type": "template",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<p>Last Score: {{global.lastscore}}</p>",
+        "output": "str",
+        "x": 560,
+        "y": 920,
+        "wires": [
+            [
+                "0ce7fe6260a79a04"
+            ]
+        ]
+    },
+    {
+        "id": "c141b2256e47d985",
+        "type": "uib-element",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "goform",
+        "elementtype": "sform",
+        "parent": "#dynamic",
+        "parentSource": "",
+        "parentSourceType": "str",
+        "elementid": "goform",
+        "elementId": "",
+        "elementIdSourceType": "str",
+        "heading": "",
+        "headingSourceType": "str",
+        "headingLevel": "h2",
+        "data": "payload",
+        "dataSourceType": "msg",
+        "position": "10",
+        "positionSourceType": "str",
+        "passthrough": false,
+        "confData": {},
+        "x": 830,
+        "y": 540,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "b67cb04d6831d184",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "not running",
+        "func": "var msg1 = {}\nmsg1.payload = [\n    {\n        \"id\": \"runtime\",\n        \"type\": \"number\",\n        \"min\": 1,\n        \"max\": 60,\n        \"label\": \"Runtime (mins, optional)\"\n    },\n    \n    {\n        \"id\": \"start\",\n        \"type\": \"button\",\n        \"label\": \"Start\",\n        \"value\": \"start\"\n    }\n]\n\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [
+                "c141b2256e47d985"
+            ]
+        ]
+    },
+    {
+        "id": "4b8238ab13a798c7",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "running check",
+        "property": "running",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 420,
+        "y": 700,
+        "wires": [
+            [
+                "87cc9a4d8bb97101"
+            ],
+            [
+                "5adcecd708aedb0f"
+            ]
+        ]
+    },
+    {
+        "id": "97b4271bda794ccc",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "link in 2",
+        "links": [
+            "9ab3f968bb8c0bf9",
+            "d5e0f53fcdc99202"
+        ],
+        "x": 445,
+        "y": 920,
+        "wires": [
+            [
+                "a8ee44a623e3f103"
+            ]
+        ]
+    },
+    {
+        "id": "0f9f1c804cc3b829",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "not running",
+        "func": "var msg1 = {}\nmsg1.mode = \"remove\"\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 820,
+        "wires": [
+            [
+                "ef0d6150f830c285"
+            ]
+        ]
+    },
+    {
+        "id": "09bcd8f9b701d23e",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "running check",
+        "property": "running",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 420,
+        "y": 800,
+        "wires": [
+            [
+                "ef0d6150f830c285"
+            ],
+            [
+                "0f9f1c804cc3b829"
+            ]
+        ]
+    },
+    {
+        "id": "5adcecd708aedb0f",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "not running",
+        "func": "var msg1 = {}\nmsg1.mode = \"remove\"\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 720,
+        "wires": [
+            [
+                "87cc9a4d8bb97101"
+            ]
+        ]
+    },
+    {
+        "id": "a709a434f5293e55",
+        "type": "uib-element",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "currentscore",
+        "elementtype": "article",
+        "parent": "#stats",
+        "parentSource": "",
+        "parentSourceType": "str",
+        "elementid": "currentscore",
+        "elementId": "",
+        "elementIdSourceType": "str",
+        "heading": "Score",
+        "headingSourceType": "str",
+        "headingLevel": "h4",
+        "data": "payload",
+        "dataSourceType": "msg",
+        "position": "50",
+        "positionSourceType": "str",
+        "passthrough": false,
+        "confData": {},
+        "x": 780,
+        "y": 960,
+        "wires": [
+            [
+                "525dfabbcd63e259"
+            ]
+        ]
+    },
+    {
+        "id": "811d9e7887a38545",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "Stats",
+        "links": [
+            "9ab3f968bb8c0bf9",
+            "d5e0f53fcdc99202",
+            "cacd00435daf0e27"
+        ],
+        "x": 255,
+        "y": 960,
+        "wires": [
+            [
+                "7f8f8c31dcc791fe"
+            ]
+        ]
+    },
+    {
+        "id": "0c30fc6ee5349946",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "not running",
+        "func": "var msg1 = {}\nmsg1.mode = \"remove\"\nreturn msg1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1000,
+        "wires": [
+            [
+                "a709a434f5293e55"
+            ]
+        ]
+    },
+    {
+        "id": "7f8f8c31dcc791fe",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "running check",
+        "property": "running",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 960,
+        "wires": [
+            [
+                "22a1f00dd5d5bb76"
+            ],
+            [
+                "0c30fc6ee5349946"
+            ]
+        ]
+    },
+    {
+        "id": "e3087c61a48d9628",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "property": "payload.runtime",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1550,
+        "y": 580,
+        "wires": [
+            [
+                "ba483439bb23dd92"
+            ]
+        ]
+    },
+    {
+        "id": "994b1bf3f2ddfca0",
+        "type": "link out",
+        "z": "ab66e8caf828f07c",
+        "name": "Timer End",
+        "mode": "link",
+        "links": [
+            "3679437f105314dd"
+        ],
+        "x": 2025,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "bcf0fcc90ef8d697",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "reset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "loop",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1690,
+        "y": 620,
+        "wires": [
+            [
+                "6d4e1a7e363453cf"
+            ]
+        ]
+    },
+    {
+        "id": "d0908a5c181832bd",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "Timer Reset",
+        "links": [
+            "9ab3f968bb8c0bf9"
+        ],
+        "x": 1585,
+        "y": 620,
+        "wires": [
+            [
+                "bcf0fcc90ef8d697"
+            ]
+        ]
+    },
+    {
+        "id": "cacd00435daf0e27",
+        "type": "link out",
+        "z": "ab66e8caf828f07c",
+        "name": "Timer",
+        "mode": "link",
+        "links": [
+            "811d9e7887a38545"
+        ],
+        "x": 2255,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ba483439bb23dd92",
+        "type": "function",
+        "z": "ab66e8caf828f07c",
+        "name": "timer set",
+        "func": "msg.topic = \"control\"\nmsg.payload = Number(msg.payload.runtime) * 60\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 580,
+        "wires": [
+            [
+                "6d4e1a7e363453cf"
+            ]
+        ]
+    },
+    {
+        "id": "3679437f105314dd",
+        "type": "link in",
+        "z": "ab66e8caf828f07c",
+        "name": "Stop",
+        "links": [
+            "994b1bf3f2ddfca0"
+        ],
+        "x": 995,
+        "y": 460,
+        "wires": [
+            [
+                "7fea37c95d4ae022"
+            ]
+        ]
+    },
+    {
+        "id": "7fea37c95d4ae022",
+        "type": "switch",
+        "z": "ab66e8caf828f07c",
+        "name": "loop break",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 460,
+        "wires": [
+            [
+                "32d865e6990e29cf"
+            ]
+        ]
+    },
+    {
+        "id": "6d4e1a7e363453cf",
+        "type": "countdown",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "topic": "",
+        "payloadTimerStart": "true",
+        "payloadTimerStartType": "bool",
+        "payloadTimerStop": "false",
+        "payloadTimerStopType": "bool",
+        "timer": 30,
+        "resetWhileRunning": false,
+        "outputOnReset": false,
+        "setTimeToNewWhileRunning": false,
+        "startCountdownOnControlMessage": true,
+        "x": 1870,
+        "y": 600,
+        "wires": [
+            [
+                "994b1bf3f2ddfca0"
+            ],
+            [
+                "64997ad0da4e4397"
+            ]
+        ]
+    },
+    {
+        "id": "22a1f00dd5d5bb76",
+        "type": "template",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Current Score: {{global.counter}}\nTime Remaining: {{global.countdown}}\n",
+        "output": "str",
+        "x": 560,
+        "y": 960,
+        "wires": [
+            [
+                "a709a434f5293e55"
+            ]
+        ]
+    },
+    {
+        "id": "64997ad0da4e4397",
+        "type": "change",
+        "z": "ab66e8caf828f07c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "countdown",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2100,
+        "y": 600,
+        "wires": [
+            [
+                "cacd00435daf0e27"
+            ]
+        ]
+    },
+    {
+        "id": "158a8d8a4097da9f",
+        "type": "udp in",
+        "z": "78aa24a78d24f636",
+        "name": "",
+        "iface": "",
+        "port": "8001",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "322f276b9890cee0"
+            ]
+        ]
+    },
+    {
+        "id": "322f276b9890cee0",
+        "type": "osc",
+        "z": "78aa24a78d24f636",
+        "name": "",
+        "path": "/eos/out/cmd",
+        "metadata": false,
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "587c89971be0c261"
+            ]
+        ]
+    },
+    {
+        "id": "587c89971be0c261",
+        "type": "switch",
+        "z": "78aa24a78d24f636",
+        "name": "Command Line Filter",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/eos/out/cmd",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 460,
+        "y": 100,
+        "wires": [
+            [
+                "05cdb3cc8e5de3e7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "05cdb3cc8e5de3e7",
+        "type": "function",
+        "z": "78aa24a78d24f636",
+        "name": "command line splitter",
+        "func": "cmdline = msg.payload[0];\ncmdpara = cmdline.replace(\": \",\"\\n\");\ncmdpara = cmdpara.replace(\" : \",\"\\n\");\n\nconst cmdarray = cmdpara.split(\"\\n\");\n\nvar msg1 = msg\nvar msg2 = msg\nvar msg3 = msg\n\nmsg1.payload = cmdarray[0]\nmsg2.payload = cmdarray[1]\nmsg3.payload = cmdarray[2]\n\nreturn [msg1, msg2, msg3]",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 100,
+        "wires": [
+            [],
+            [],
+            [
+                "c3344271939585bb",
+                "c210308d6dffb9dc"
+            ]
+        ],
+        "outputLabels": [
+            "Mode",
+            "Selected Cue",
+            "Command Line"
+        ]
+    },
+    {
+        "id": "c3344271939585bb",
+        "type": "switch",
+        "z": "78aa24a78d24f636",
+        "name": "detect enter",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "#",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 100,
+        "wires": [
+            [
+                "4eb0a01272645f8b"
+            ]
+        ]
+    },
+    {
+        "id": "4eb0a01272645f8b",
+        "type": "change",
+        "z": "78aa24a78d24f636",
+        "name": "remove enter",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": " #",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 100,
+        "wires": [
+            [
+                "bddd0386ef510813",
+                "f0b1203a6d848c34"
+            ]
+        ]
+    },
+    {
+        "id": "bddd0386ef510813",
+        "type": "switch",
+        "z": "78aa24a78d24f636",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "currentprompt",
+                "vt": "global"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1070,
+        "y": 160,
+        "wires": [
+            [
+                "54f297152521408f"
+            ],
+            [
+                "5add08abd9d5ec6f"
+            ]
+        ]
+    },
+    {
+        "id": "d5e0f53fcdc99202",
+        "type": "link out",
+        "z": "78aa24a78d24f636",
+        "name": "Correct",
+        "mode": "link",
+        "links": [
+            "c898af602dd9e28e",
+            "97b4271bda794ccc",
+            "811d9e7887a38545"
+        ],
+        "x": 1395,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "54f297152521408f",
+        "type": "function",
+        "z": "78aa24a78d24f636",
+        "name": "correct",
+        "func": "counter = global.get(\"counter\")\ncounter = counter + 1\nglobal.set(\"counter\",counter)\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 160,
+        "wires": [
+            [
+                "d5e0f53fcdc99202"
+            ]
+        ]
+    },
+    {
+        "id": "5add08abd9d5ec6f",
+        "type": "function",
+        "z": "78aa24a78d24f636",
+        "name": "incorrect",
+        "func": "counter = global.get(\"counter\")\ncounter = counter - 5\nglobal.set(\"counter\",counter)\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 200,
+        "wires": [
+            [
+                "d5e0f53fcdc99202"
+            ]
+        ]
+    },
+    {
+        "id": "c210308d6dffb9dc",
+        "type": "link out",
+        "z": "78aa24a78d24f636",
+        "name": "Command Line",
+        "mode": "link",
+        "links": [
+            "4c74bfe7aa56b422"
+        ],
+        "x": 925,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f0b1203a6d848c34",
+        "type": "debug",
+        "z": "78aa24a78d24f636",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e161c2d30d487792",
+        "type": "link out",
+        "z": "335292891edc720c",
+        "name": "Generated Prompt",
+        "mode": "link",
+        "links": [
+            "591a9402571af466"
+        ],
+        "x": 1975,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c898af602dd9e28e",
+        "type": "link in",
+        "z": "335292891edc720c",
+        "name": "Generate New Prompt",
+        "links": [
+            "c87a2e66bca3d9d3",
+            "d5e0f53fcdc99202"
+        ],
+        "x": 25,
+        "y": 100,
+        "wires": [
+            [
+                "b5e1e0ca13c411ab"
+            ]
+        ]
+    },
+    {
+        "id": "8919f764076994a6",
+        "type": "change",
+        "z": "335292891edc720c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentprompt",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1790,
+        "y": 400,
+        "wires": [
+            [
+                "e161c2d30d487792",
+                "485c1a22d44ce49f"
+            ]
+        ]
+    },
+    {
+        "id": "ddc9434672ef0ac5",
+        "type": "inject",
+        "z": "335292891edc720c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "b5e1e0ca13c411ab"
+            ]
+        ]
+    },
+    {
+        "id": "f5d2cd2e9e0cd3c3",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Intensity Generator",
+        "func": "function getRandomInt(max) {\n  return (Math.floor((Math.random() * max - 1))+1);\n}\n\nfunction round5(x)\n{\n    return Math.round(x / 5) * 5;\n}\n\nvar value = {}\n\nchan = String(getRandomInt(1000))\nvalue = String(round5(getRandomInt(95)))\n\ncmdline = msg.payload\n\ncmdline = cmdline + \" @ \" + value\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1610,
+        "y": 120,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "b5e1e0ca13c411ab",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "cmdline reset",
+        "func": "cmdline = \"\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "ee1170ba6045c59f"
+            ]
+        ]
+    },
+    {
+        "id": "7fe4fc828397e347",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Int Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Intensity Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1350,
+        "y": 140,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "959ac5f6e383186e",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Focus Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Focus Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 300,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "57da4cc4541bfbf5",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Color Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Color Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 260,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "864823965294fbac",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Beam Palette Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Beam Palette \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 220,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "ba14cd5f0703899d",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Preset Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Preset \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 180,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "094f0d567a54b108",
+        "type": "random-output",
+        "z": "335292891edc720c",
+        "name": "",
+        "outputs": 8,
+        "useWeights": true,
+        "weights": [
+            "6",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "2",
+            "1",
+            "2",
+            "2"
+        ],
+        "x": 1120,
+        "y": 160,
+        "wires": [
+            [
+                "f5d2cd2e9e0cd3c3"
+            ],
+            [
+                "7fe4fc828397e347"
+            ],
+            [
+                "ba14cd5f0703899d"
+            ],
+            [
+                "864823965294fbac"
+            ],
+            [
+                "57da4cc4541bfbf5"
+            ],
+            [
+                "959ac5f6e383186e"
+            ],
+            [
+                "d73115fd0a07d16f"
+            ],
+            [
+                "a16d4d62f11f9b29"
+            ]
+        ]
+    },
+    {
+        "id": "afa9908ef643136b",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "R100 append",
+        "func": "function getRandomInt(max) {\n  return (Math.floor((Math.random() * max - 1))+1);\n}\n\nvar rndm = {}\n\nrndm = String(getRandomInt(100))\n\ncmdline = msg.payload\n\ncmdline = cmdline + rndm\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 180,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "d73115fd0a07d16f",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Effect Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Effect \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 340,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "75c4279287ccfe1f",
+        "type": "random-output",
+        "z": "335292891edc720c",
+        "name": "",
+        "outputs": 15,
+        "useWeights": true,
+        "weights": [
+            "10",
+            "2",
+            "2",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+        ],
+        "x": 860,
+        "y": 180,
+        "wires": [
+            [
+                "094f0d567a54b108"
+            ],
+            [
+                "f747beac0321992d"
+            ],
+            [
+                "b4d0420ed8de8476"
+            ],
+            [
+                "68ed4dfd61c845d6"
+            ],
+            [
+                "dd36129dba610bd8"
+            ],
+            [
+                "23dcd95b4cd3b2a3"
+            ],
+            [
+                "529f2420174c6cf8"
+            ],
+            [
+                "0432ee49575aea3f"
+            ],
+            [
+                "e0564ca5268727e2"
+            ],
+            [
+                "e9c7cb21d4f4012d"
+            ],
+            [
+                "da42981e560b0a11"
+            ],
+            [
+                "1dce2a9b91e74c2c"
+            ],
+            [
+                "4eaa7a15d4d31ff3"
+            ],
+            [
+                "9ae1661c7d5d150d"
+            ],
+            [
+                "a901654f7c82be38"
+            ]
+        ]
+    },
+    {
+        "id": "f747beac0321992d",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Copy To Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Copy To \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 40,
+        "wires": [
+            [
+                "2c8aaa360f9ae3c3"
+            ]
+        ]
+    },
+    {
+        "id": "b4d0420ed8de8476",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Recall From Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Recall From \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 80,
+        "wires": [
+            [
+                "2c8aaa360f9ae3c3"
+            ]
+        ]
+    },
+    {
+        "id": "a16d4d62f11f9b29",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Color Path Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Color Path \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1350,
+        "y": 380,
+        "wires": [
+            [
+                "afa9908ef643136b"
+            ]
+        ]
+    },
+    {
+        "id": "dd36129dba610bd8",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Assert Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Assert\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1342,
+        "y": 640,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "68ed4dfd61c845d6",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Block Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Block\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 600,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "4cd231f8ec3ddc78",
+        "type": "subflow:a1cce4e3cc0d81c7",
+        "z": "335292891edc720c",
+        "name": "Selection Generator",
+        "x": 620,
+        "y": 100,
+        "wires": [
+            [
+                "75c4279287ccfe1f"
+            ]
+        ]
+    },
+    {
+        "id": "2c8aaa360f9ae3c3",
+        "type": "subflow:a1cce4e3cc0d81c7",
+        "z": "335292891edc720c",
+        "name": "",
+        "x": 1420,
+        "y": 60,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "23dcd95b4cd3b2a3",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Offset Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Offset\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1342,
+        "y": 680,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "529f2420174c6cf8",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Mark Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Mark\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1342,
+        "y": 720,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "0432ee49575aea3f",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Fan Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Fan  Forward \"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1332,
+        "y": 760,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "e0564ca5268727e2",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Make Manual Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Make Manual\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1362,
+        "y": 800,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "e9c7cb21d4f4012d",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Make Aboslute Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Make Absolute\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1372,
+        "y": 840,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "da42981e560b0a11",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Full Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" @ Full\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1332,
+        "y": 880,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "1dce2a9b91e74c2c",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Level Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Level\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1342,
+        "y": 920,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "4eaa7a15d4d31ff3",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Out Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" @ Out\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1332,
+        "y": 960,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "9ae1661c7d5d150d",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Delay Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Delay\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 1000,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "a901654f7c82be38",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Time Append",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \" Time\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 1040,
+        "wires": [
+            [
+                "8919f764076994a6"
+            ]
+        ]
+    },
+    {
+        "id": "ee1170ba6045c59f",
+        "type": "random-output",
+        "z": "335292891edc720c",
+        "name": "",
+        "outputs": 4,
+        "useWeights": true,
+        "weights": [
+            "10",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+        ],
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "4cd231f8ec3ddc78"
+            ],
+            [
+                "48ab0f519b4e07c1"
+            ],
+            [
+                "0730a478fbf3f88b"
+            ],
+            [
+                "e34a7cc0d9813cf1"
+            ]
+        ]
+    },
+    {
+        "id": "48ab0f519b4e07c1",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Select Manual",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Select Manual\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "75c4279287ccfe1f"
+            ]
+        ]
+    },
+    {
+        "id": "0730a478fbf3f88b",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Select Active",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Select Active\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "75c4279287ccfe1f"
+            ]
+        ]
+    },
+    {
+        "id": "e34a7cc0d9813cf1",
+        "type": "function",
+        "z": "335292891edc720c",
+        "name": "Select NonSub Active",
+        "func": "cmdline = msg.payload\n\ncmdline = cmdline + \"Select NonSub Active\"\n\nmsg.payload = cmdline\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "75c4279287ccfe1f"
+            ]
+        ]
+    },
+    {
+        "id": "485c1a22d44ce49f",
+        "type": "debug",
+        "z": "335292891edc720c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2020,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8558cab3583c3242",
+        "type": "inject",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "74c6b2dca2332117",
+        "type": "function",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "resetgroup",
+        "func": "var groupno = 1\n\ngroupno = flow.set(\"groupno\",groupno)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6de7a790e1a56d0c",
+        "type": "udp out",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "",
+        "addr": "192.168.0.52",
+        "iface": "",
+        "port": "8000",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 1140,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f37f40046d6d2e4d",
+        "type": "inject",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "74c6b2dca2332117"
+            ]
+        ]
+    },
+    {
+        "id": "39e1c38c4a84b177",
+        "type": "osc",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "",
+        "path": "",
+        "metadata": false,
+        "x": 910,
+        "y": 240,
+        "wires": [
+            [
+                "6de7a790e1a56d0c"
+            ]
+        ]
+    },
+    {
+        "id": "e11abc5a343b73ab",
+        "type": "function",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "grouprecord",
+        "func": "var groupno = 0\n\ngroupno = flow.get(\"groupno\")\n\ngroupend = (groupno * 10)\ngroupstart = groupend - 9\n\ngroupend = String(groupend)\ngroupstart = String(groupstart)\ngroupnostring = String(groupno)\n\nmsg.payload = \"Chan \" + groupstart + \" thru \" + groupend + \" record group \" + groupnostring + \"##\"\nmsg.topic = \"/eos/cmd\"\n\ngroupno = groupno + 1\n\nflow.set(\"groupno\", groupno)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "edbef956a4b739be",
+        "type": "function",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "col pal record 1",
+        "func": "var groupno = 0\n\ngroupno = flow.get(\"groupno\")\n\ngroupend = (groupno * 10)\ngroupstart = groupend - 9\n\ngroupend = String(groupend)\ngroupstart = String(groupstart)\ngroupnostring = String(groupno)\n\nmsg.payload = \"Chan \" + groupstart + \" thru \" + groupend + \" record\"\nmsg.topic = \"/eos/newcmd\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1483f42e1eee18d",
+        "type": "inject",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adbcd3e2ece1c38c",
+        "type": "function",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "col pal record 1",
+        "func": "var groupno = 0\n\ngroupno = flow.get(\"groupno\")\n\ngroupend = (groupno * 10)\ngroupstart = groupend - 9\n\ngroupend = String(groupend)\ngroupstart = String(groupstart)\ngroupnostring = String(groupno)\n\nmsg.payload = groupnostring + \"##\"\nmsg.topic = \"/eos/cmd\"\n\ngroupno = groupno + 1\n\nflow.set(\"groupno\", groupno)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84fac8f325f99c12",
+        "type": "delay",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.9",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "adbcd3e2ece1c38c"
+            ]
+        ]
+    },
+    {
+        "id": "beb7d0218ed6c4bd",
+        "type": "function",
+        "z": "e2d4a43ff9f2c0b7",
+        "name": "subrecord",
+        "func": "var groupno = 0\n\ngroupno = flow.get(\"groupno\")\n\ngroupend = (groupno * 10)\ngroupstart = groupend - 9\n\ngroupend = String(groupend)\ngroupstart = String(groupstart)\ngroupnostring = String(groupno)\n\nmsg.payload = \"Chan \" + groupstart + \" thru \" + groupend + \" record sub \" + groupnostring + \"##\"\nmsg.topic = \"/eos/cmd\"\n\ngroupno = groupno + 1\n\nflow.set(\"groupno\", groupno)\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "39e1c38c4a84b177"
+            ]
+        ]
+    }
+]

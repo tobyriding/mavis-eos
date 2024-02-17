@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../uibuilder/images/node-blue.ico">
+
+    <title>Mavis Beacon</title>
+    <meta name="description" content="Node-RED uibuilder - modern IIFE client example">
+
+    <!-- Your own CSS -->
+    <link type="text/css" rel="stylesheet" href="./index.css" media="all">
+
+    <!-- #region Supporting Scripts. These MUST be in the right order. Note no leading / - socket.io no longer needed  -->
+    <script defer src="../uibuilder/uibuilder.iife.min.js"></script>
+    <script defer src="./index.js">/* OPTIONAL: Put your custom code in that */</script>
+    <!-- #endregion -->
+
+</head><body class="uib">
+    
+    <h1 class="with-subtitle">Mavis Beacon Teaches Eos</h1>
+    <p>This is a tool to help Eos programmers learn how to touch type on an eos console, in the style of computer keyboard touch typing resources that I used as a child. Simply set it going and just follow the command line prompts!</p>
+    <p>To use this tool make sure your computer and console are on the same network and have compatible IP's and then open <a href="Mavis Beacon v1.esf3d" download>this showfile</a> and open it in Eos. Once your PC and Console are on the same LAN and have matching subnets, input the IP of the computer you are running this on into the <i>OSC UDP TX Address</i> box under Setup > System > Show Control > OSC, making sure OSC TX is on and the OSC UDP TX port is set to 8001. </p>
+    <p>If you are using this on the same PC as Eos, input the loopback IP address of 127.0.0.1</p>
+    <p>This is very much a work in progress, but click the button below and have fun!</p>
+    <p><b>This software is provided as-is without warranty. I do not recommend use on any large networks or consoles that have any way of controlling fixtures. I take no responsibility for anything that may arise if that does occur.</b> </b></p>
+    
+    <div id="dynamic"></div>
+    <br>
+    <br>
+    <div id="stats"></div>
+
+</body></html>
