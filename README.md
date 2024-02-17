@@ -11,7 +11,8 @@ The software generates random Eos syntax, and displays them on a local webpage f
 ### Compatiblity
 This project does not require any ETC hardware, or any licenses. This means that you can practice using any ETC desk that can run the (non-legacy) .esf2 showfile, or just use the Windows/Mac EOS software on the same PC as the project, allowing you to practice with hotkeys or LXkeys type hardware. The only limiting factor may be that the showfile is quite large for Eos (10mb), so can take a while to load.
 
-
+### UI Example
+![Screenshot](screenshot.png)
 
 ## Installation
  1. Follow [this guide](https://nodered.org/docs/getting-started/local) on how to install Node Red for your system.
